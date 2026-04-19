@@ -1,1 +1,49 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background:#f4f4f4;
+  margin:0;
+}
 
+.title {
+  text-align:center;
+  padding:20px;
+  background:#333;
+  color:white;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  gap:20px;
+  padding:20px;
+}
+
+.aisle {
+  background:white;
+  padding:15px;
+  border-radius:10px;
+  box-shadow:0 3px 10px rgba(0,0,0,.1);
+}
+
+.wide { grid-column: span 2; }
+
+table {
+  width:100%;
+  border-collapse: collapse;
+}
+
+th {
+  background:#eee;
+  padding:10px;
+  text-align:left;
+}
+
+td {
+  padding:8px;
+  border-bottom:1px solid #ddd;
+}
+
+.highlight {
+  background:#6cff57;
+  font-weight:bold;
+}
