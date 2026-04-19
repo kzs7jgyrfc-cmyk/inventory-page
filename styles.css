@@ -49,7 +49,7 @@ td {
 .qty {
   background:#fffbe6;
   cursor:text;
-  min-width:60px;
+  min-width:40px;
 }
 
 .qty:focus {
