@@ -1,14 +1,25 @@
-// Auto-save quantities in browser
+// Save quantities using item IDs instead of position
 
-window.onload = () => {
-  const cells = document.querySelectorAll(".qty");
+document.addEventListener("DOMContentLoaded", () => {
+  const qtyCells = document.querySelectorAll(".qty");
 
-  cells.forEach((cell, index) => {
-    const saved = localStorage.getItem("qty-" + index);
-    if (saved) cell.innerText = saved;
+  qtyCells.forEach(cell => {
+    // Find the row's unique ID
+    const row = cell.closest("[data-item-id]");
+    if (!row) return;
 
+    const itemId = row.dataset.itemId;
+    const storageKey = `qty-${itemId}`;
+
+    // Load saved quantity
+    const savedQty = localStorage.getItem(storageKey);
+    if (savedQty !== null) {
+      cell.textContent = savedQty;
+    }
+
+    // Save when edited
     cell.addEventListener("input", () => {
-      localStorage.setItem("qty-" + index, cell.innerText);
+      localStorage.setItem(storageKey, cell.textContent.trim());
     });
   });
-};
+});
